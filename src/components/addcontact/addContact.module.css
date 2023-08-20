@@ -1,0 +1,28 @@
+.wrapper {
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.phonebookHeader {
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.form {
+  display: inline-block;
+  text-align: left;
+}
+
+.formInput {
+  margin: 10px;
+  margin-left: 5px;
+}
+.inputLabel {
+  padding-right: 5px;
+  color: blue;
+  font-weight: 700;
+}
