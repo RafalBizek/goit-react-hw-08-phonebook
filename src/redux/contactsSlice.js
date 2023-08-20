@@ -36,7 +36,7 @@ export const saveContact = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.error('Error saving contact to API:', error);
-      throw error; // Rethrow the error
+      throw error;
     }
   }
 );

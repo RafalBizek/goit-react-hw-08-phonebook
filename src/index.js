@@ -10,17 +10,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-// import { createRoot } from 'react-dom/client';
-// import { Provider } from 'react-redux';
-// import { App } from './components/App';
-
-// import { store } from 'redux/store';
-
-// const rootElement = document.getElementById('root');
-// const root = createRoot(rootElement);
-
-// root.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>
-// );

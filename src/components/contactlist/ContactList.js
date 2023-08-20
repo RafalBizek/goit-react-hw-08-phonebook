@@ -85,10 +85,10 @@ const ContactList = () => {
   return (
     <div>
       <div>
-        <h2 className={css.contactsH2}>Contacts</h2>
+        <h2 className={css.contactsHeader}>Contacts</h2>
         <form className={css.form}>
           <div className={css.formInput}>
-            <label htmlFor="Find contacts by name" className={css.inputLabel}>
+            <label htmlFor="Find contacts" className={css.inputLabel}>
               Find contacts
               <input
                 type="text"

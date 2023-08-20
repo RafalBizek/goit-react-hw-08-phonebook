@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setStatusFilter } from 'redux/contactsSlice'; // Popraw ścieżkę do contactsSlice
+import { setStatusFilter } from 'redux/contactsSlice';
 
 export const Filters = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ export const Filters = () => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        // border: '1px solid black',
         padding: '10px',
       }}
     >
