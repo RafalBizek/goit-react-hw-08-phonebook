@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setStatusFilter } from 'redux/contactsSlice';
 
-export const Filters = () => {
+const Filters = () => {
   const dispatch = useDispatch();
 
   const handleChangeFilter = status => {
@@ -23,3 +23,4 @@ export const Filters = () => {
     </div>
   );
 };
+export default Filters;

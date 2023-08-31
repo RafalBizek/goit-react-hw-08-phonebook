@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/actions';
 import css from './ContactForm.module.css';
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const currentUser = useSelector(state => state.user.currentUser);
 
   const handleSubmit = event => {
     event.preventDefault();
 
     if (name.trim() === '' || number.trim() === '') {
-      return; // Wprowadź odpowiednie walidacje, jeśli jest to wymagane
+      return;
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ name, number, userId: currentUser.id }));
 
     // Wyczyść pola formularza po dodaniu kontaktu
     setName('');
@@ -52,3 +54,4 @@ export const ContactForm = () => {
     </form>
   );
 };
+export default ContactForm;

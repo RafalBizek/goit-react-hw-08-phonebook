@@ -1,13 +1,19 @@
-import React from 'react'; // Upewnij się, że importujesz React
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteContact, toggleFavorite } from './actions'; // Importuj odpowiednie akcje
+import { deleteContact, toggleFavorite } from './actions';
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => dispatch(deleteContact(contact.id));
-  const handleToggle = () =>
+  const handleDelete = () => {
+    // Wywołaj akcję usuwania kontaktu z wykorzystaniem createAsyncThunk
+    dispatch(deleteContact(contact.id));
+  };
+
+  const handleToggle = () => {
+    // Wywołaj akcję zmiany statusu ulubionego z wykorzystaniem createAsyncThunk
     dispatch(toggleFavorite({ id: contact.id, favorite: !contact.favorite }));
+  };
 
   return (
     <div

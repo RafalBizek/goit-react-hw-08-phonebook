@@ -1,21 +1,11 @@
-import { createSelector } from '@reduxjs/toolkit';
+export const selectLoggedIn = state => state.auth.isLoggedIn;
 
-export const selectIsLoading = state => state.contacts.isLoading;
+export const selectUser = state => state.auth.user;
 
-export const selectError = state => state.contacts.error;
+export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectContactsItems = state => state.contacts.items;
 
-export const selectFilters = state => state.filters;
+export const selectIsLoading = state => state.isLoading;
 
-export const selectFiltersContacts = createSelector(
-  [selectContactsItems, selectFilters],
-  (contacts, filters) => {
-    switch (filters) {
-      case 'favorite':
-        return contacts.filter(contact => contact.favorite);
-      default:
-        return contacts;
-    }
-  }
-);
+export const selectError = state => state.error;

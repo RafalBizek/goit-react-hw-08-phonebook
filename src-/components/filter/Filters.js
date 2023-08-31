@@ -14,7 +14,6 @@ export const Filters = () => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        // border: '1px solid black',
         padding: '10px',
       }}
     >
