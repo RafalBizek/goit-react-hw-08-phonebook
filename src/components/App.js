@@ -25,12 +25,12 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route path="https://github.com/RafalBizek/goit-react-hw-08-phonebook" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route
           path="register"
           element={
-            <RestrictRoute redirectTo="https://github.com/RafalBizek/goit-react-hw-08-phonebook/contacts">
+            <RestrictRoute redirectTo="/contacts">
               <RegisterPage />
             </RestrictRoute>
           }
@@ -38,7 +38,7 @@ export const App = () => {
         <Route
           path="login"
           element={
-            <RestrictRoute redirectTo="https://github.com/RafalBizek/goit-react-hw-08-phonebook/">
+            <RestrictRoute redirectTo="/">
               <LoginPage />
             </RestrictRoute>
           }
@@ -47,7 +47,7 @@ export const App = () => {
           path="contacts"
           element={
             <PrivateRoute
-              redirectTo="https://github.com/RafalBizek/goit-react-hw-08-phonebook/login"
+              redirectTo="/login"
               component={ContactsPage}
             >
               <ContactsPage />
