@@ -30,7 +30,7 @@ export const App = () => {
         <Route
           path="register"
           element={
-            <RestrictRoute redirectTo="/goit-react-hw-08-phonebook/contacts">
+            <RestrictRoute redirectTo="/contacts">
               <RegisterPage />
             </RestrictRoute>
           }
