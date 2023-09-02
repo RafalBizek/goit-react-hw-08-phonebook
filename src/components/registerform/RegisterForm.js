@@ -1,81 +1,51 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/actions';
+import { useState } from 'react';
+import css from './RegisterForm.module.css';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [error, setError] = useState(null);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    if (
-      formData.name.trim() === '' ||
-      formData.email.trim() === '' ||
-      formData.password.trim() === ''
-    ) {
-      return;
+    const form = e.currentTarget;
+    const result = await dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+
+    if (register.fulfilled.match(result)) {
+      form.reset();
+    } else {
+      setError(result.payload.error);
     }
-
-    dispatch(register(formData)); // Przekazujemy tylko dane do akcji, nie funkcję
-    setFormData({
-      name: '',
-      email: '',
-      password: '',
-    });
-  };
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
   };
 
   return (
     <form
+      className={css.registerForm}
       onSubmit={handleSubmit}
       autoComplete="off"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-        alignItems: 'center',
-      }}
     >
       <label>
         Username
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+        <input type="text" name="name" />
       </label>
       <label>
         Email
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+        <input type="email" name="email" />
       </label>
       <label>
         Password
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+        <input type="password" name="password" />
       </label>
       <button type="submit">Register</button>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
     </form>
   );
 };

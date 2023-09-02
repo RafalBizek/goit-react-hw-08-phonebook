@@ -8,11 +8,11 @@ import {
 export const useAuthUser = () => {
   const isLogged = useSelector(selectLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
-  const user = useSelector(selectUser);
+  const isUser = useSelector(selectUser);
 
   return {
     isLogged,
     isRefreshing,
-    user,
+    isUser,
   };
 };
