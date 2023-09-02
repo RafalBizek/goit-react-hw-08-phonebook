@@ -23,7 +23,7 @@ export const NavigationBar = () => {
         <NavLink
           className={css.navLink}
           activeClassName="active"
-          to="/k"
+          to="/"
         >
           Home
         </NavLink>
