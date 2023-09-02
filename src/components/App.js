@@ -25,12 +25,12 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
         <Route index element={<Home />} />
         <Route
           path="register"
           element={
-            <RestrictRoute redirectTo="/contacts">
+            <RestrictRoute redirectTo="/goit-react-hw-08-phonebook/contacts">
               <RegisterPage />
             </RestrictRoute>
           }
@@ -38,7 +38,7 @@ export const App = () => {
         <Route
           path="login"
           element={
-            <RestrictRoute redirectTo="/">
+            <RestrictRoute redirectTo="/goit-react-hw-08-phonebook/">
               <LoginPage />
             </RestrictRoute>
           }
@@ -47,7 +47,7 @@ export const App = () => {
           path="contacts"
           element={
             <PrivateRoute
-              redirectTo="/login"
+              redirectTo="/goit-react-hw-08-phonebook/login"
               component={ContactsPage}
             >
               <ContactsPage />
