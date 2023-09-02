@@ -13,7 +13,7 @@ export const NavigationBar = () => {
   const { isLogged } = useAuthUser();
 
   const handleLogout = () => {
-    navigate('/login');
+    navigate('/goit-react-hw-08-phonebook/login');
     dispatch(logOut());
   };
 
@@ -23,14 +23,14 @@ export const NavigationBar = () => {
         <NavLink
           className={css.navLink}
           activeClassName="active"
-          to="/"
+          to="/goit-react-hw-08-phonebook"
         >
           Home
         </NavLink>
         <NavLink
           className={css.navLink}
           activeClassName={css.active}
-          to="/contacts"
+          to="/goit-react-hw-08-phonebook/contacts"
         >
           Contacts
         </NavLink>
@@ -43,14 +43,14 @@ export const NavigationBar = () => {
             <NavLink
               className={css.navLink}
               activeClassName={css.active}
-              to="/login"
+              to="/goit-react-hw-08-phonebook/login"
             >
               Login
             </NavLink>
             <NavLink
               className={css.navLink}
               activeClassName={css.active}
-              to="/register"
+              to="/goit-react-hw-08-phonebook/register"
             >
               Register
             </NavLink>
