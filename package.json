@@ -2,7 +2,7 @@
   "name": "goit-react-hw-08-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rafalbizek.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://RafalBizek.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
     "@chakra-ui/react": "^2.8.0",
     "@reduxjs/toolkit": "^1.9.5",
