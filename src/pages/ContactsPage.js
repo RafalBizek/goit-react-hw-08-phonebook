@@ -24,12 +24,23 @@ export const ContactsPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    const isDuplicate = contacts.some(
+      contact => contact.name === name || contact.phone === phone
+    );
+
+    if (isDuplicate && editing === null) {
+      alert('Contact with the same name or phone number already exists');
+      return;
+    }
+
     const newContacts =
       editing !== null
         ? contacts.map((contact, index) =>
             index === editing ? { name, phone } : contact
           )
         : [...contacts, { name, phone }];
+
     setContacts(newContacts);
     localStorage.setItem('contacts', JSON.stringify(newContacts));
     setName('');
@@ -37,10 +48,31 @@ export const ContactsPage = () => {
     setEditing(null);
   };
 
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const newContacts =
+  //     editing !== null
+  //       ? contacts.map((contact, index) =>
+  //           index === editing ? { name, phone } : contact
+  //         )
+  //       : [...contacts, { name, phone }];
+  //   setContacts(newContacts);
+  //   localStorage.setItem('contacts', JSON.stringify(newContacts));
+  //   setName('');
+  //   setPhone('');
+  //   setEditing(null);
+  // };
+
   const handleEdit = index => {
     setName(contacts[index].name);
     setPhone(contacts[index].phone);
     setEditing(index);
+  };
+
+  const handleDelete = index => {
+    const newContacts = contacts.filter((_, i) => i !== index);
+    setContacts(newContacts);
+    localStorage.setItem('contacts', JSON.stringify(newContacts));
   };
 
   return (
@@ -69,6 +101,12 @@ export const ContactsPage = () => {
               className={css.editButton}
             >
               Edit
+            </button>
+            <button
+              onClick={() => handleDelete(index)}
+              className={css.deleteButton}
+            >
+              Delete
             </button>
           </li>
         ))}

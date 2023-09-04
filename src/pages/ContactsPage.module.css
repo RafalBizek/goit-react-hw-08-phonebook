@@ -56,7 +56,8 @@
   margin-bottom: 10px;
 }
 
-.editButton {
+.editButton,
+.deleteButton {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
